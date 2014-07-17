@@ -44,6 +44,16 @@ route '*' do
   end
 end
 
+route '/assets/fonts/*/' do
+  # /fonts/foo-eot/ -> /fonts/foo.eot
+  item.identifier.sub(/-.+\/$/, '') + item[:extension]
+end
+
+route '/assets/js/jquery-2.1.0/' do
+  # /fonts/foo-eot/ -> /fonts/foo.eot
+  item.identifier.sub(/-.+\/$/, '') + item[:extension]
+end
+
 
 layout '*', :erb
 #layout '*', :haml
